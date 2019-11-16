@@ -8,11 +8,11 @@ namespace UnityPrototype
     {
         [SerializeField] private float m_speed = 1.0f;
 
-        private static readonly Dictionary<FieldMover.Direction, Vector2> m_directionVectors = new Dictionary<FieldMover.Direction, Vector2> {
-            {FieldMover.Direction.Left, Vector2.left},
-            {FieldMover.Direction.Right, Vector2.right},
-            {FieldMover.Direction.Up, Vector2.up},
-            {FieldMover.Direction.Down, Vector2.down},
+        private static readonly Dictionary<FieldMover.Direction, Vector2Int> m_directionVectors = new Dictionary<FieldMover.Direction, Vector2Int> {
+            {FieldMover.Direction.Left, Vector2Int.left},
+            {FieldMover.Direction.Right, Vector2Int.right},
+            {FieldMover.Direction.Up, Vector2Int.up},
+            {FieldMover.Direction.Down, Vector2Int.down},
         };
 
         private Direction m_currentDirection = Direction.Right;
@@ -38,7 +38,7 @@ namespace UnityPrototype
             m_fieldTransform.Snap();
         }
 
-        private bool IsVertical(Direction dir)
+        private static bool IsDirectionVertical(Direction dir)
         {
             switch (dir)
             {
@@ -50,7 +50,7 @@ namespace UnityPrototype
             return false;
         }
 
-        private bool IsFlipped(Direction dir)
+        private static bool IsDirectionFlipped(Direction dir)
         {
             switch (dir)
             {
@@ -60,6 +60,24 @@ namespace UnityPrototype
             }
 
             return false;
+        }
+
+        private static Direction ReverseDirection(Direction dir)
+        {
+            switch (dir)
+            {
+                case Direction.Left:
+                    return Direction.Right;
+                case Direction.Right:
+                    return Direction.Left;
+                case Direction.Up:
+                    return Direction.Down;
+                case Direction.Down:
+                    return Direction.Up;
+            }
+
+            Debug.Assert(false);
+            return Direction.Right;
         }
 
         public void ScheduleTurn(Direction direction)
@@ -87,36 +105,51 @@ namespace UnityPrototype
 
         private void MoveInCurrentDirection(float dt)
         {
-            var delta = GetDirectionVector(m_currentDirection) * m_speed * dt;
+            var delta = (Vector2)GetDirectionVector(m_currentDirection) * m_speed * dt;
             m_fieldTransform.location += delta;
         }
 
         private void OnTileReached()
         {
             Snap();
-            TrySwitchDirection();
-            EventBus.Instance.Raise(new GameEvents.OnTileReached() { currPosition = transform.position});
+            TrySwitchScheduledDirection();
+            TryReflectOffWalls();
+            EventBus.Instance.Raise(new GameEvents.OnTileReached() { currPosition = transform.position });
         }
 
-        private void TrySwitchDirection()
+        private void TrySwitchScheduledDirection()
         {
             if (m_scheduledDirection.HasValue)
                 m_currentDirection = m_scheduledDirection.Value;
             m_scheduledDirection = null;
         }
 
-        private Vector2 GetDirectionVector(Direction dir)
+        private void TryReflectOffWalls()
+        {
+            var nextLocation = GetNextTileLocation();
+            if (this.GetCachedComponentInParent<Field>().IsPassable(nextLocation))
+                return;
+
+            m_currentDirection = ReverseDirection(m_currentDirection);
+        }
+
+        private Vector2Int GetDirectionVector(Direction dir)
         {
             return m_directionVectors[dir];
+        }
+
+        private Vector2Int GetNextTileLocation()
+        {
+            return m_fieldTransform.snappedLocation + GetDirectionVector(m_currentDirection);
         }
 
         private float DistanceUntilNextTile()
         {
             var loc = m_fieldTransform.location;
-            var value = IsVertical(m_currentDirection) ? loc.y : loc.x;
+            var value = IsDirectionVertical(m_currentDirection) ? loc.y : loc.x;
 
             var d = 1.0f - Mathf.Repeat(value, 1.0f);
-            if (IsFlipped(m_currentDirection))
+            if (IsDirectionFlipped(m_currentDirection))
                 d = 1.0f - d;
 
             return d;

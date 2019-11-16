@@ -12,9 +12,11 @@ namespace UnityPrototype
             Children,
         }
 
+        private static bool s_cacheInitialized = false;
         private static Dictionary<GameObject, Dictionary<System.Type, Component>> s_selfCache = new Dictionary<GameObject, Dictionary<System.Type, Component>>();
         private static Dictionary<GameObject, Dictionary<System.Type, Component>> s_parentCache = new Dictionary<GameObject, Dictionary<System.Type, Component>>();
         private static Dictionary<GameObject, Dictionary<System.Type, Component>> s_childrenCache = new Dictionary<GameObject, Dictionary<System.Type, Component>>();
+        private static bool s_playingModeCache = false;
 
         public static T GetCachedComponent<T>(this GameObject obj) where T : Component
         {
@@ -70,6 +72,8 @@ namespace UnityPrototype
 
         private static T GetCachedComponentInternal<T>(GameObject obj, ComponentSearchMode mode) where T : Component
         {
+            TryInitializeCache();
+
             var cache = GetCache(mode);
 
             Dictionary<System.Type, Component> behaviourCache;
@@ -126,6 +130,20 @@ namespace UnityPrototype
 
             Debug.Assert(false);
             return null;
+        }
+
+        private static void TryInitializeCache()
+        {
+            var playingModeMatches = s_playingModeCache == Application.isPlaying;
+
+            if (s_cacheInitialized && playingModeMatches)
+                return;
+
+            s_selfCache.Clear();
+            s_parentCache.Clear();
+            s_childrenCache.Clear();
+            s_playingModeCache = Application.isPlaying;
+            s_cacheInitialized = true;
         }
 
         public static T GetRequiredComponent<T>(this GameObject obj) where T : Component

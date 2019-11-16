@@ -20,12 +20,31 @@ namespace UnityPrototype
             }
         }
 
+        public Vector2Int snappedLocation
+        {
+            get
+            {
+                return GetSnappedLocation();
+            }
+        }
+
         public void Snap()
         {
+            location = snappedLocation;
+        }
+
+        public Vector2Int GetSnappedLocation()
+        {
+            return GetSnappedLocation(location);
+        }
+
+        public Vector2Int GetSnappedLocation(Vector2 location)
+        {
             var loc = location;
-            loc.x = Mathf.RoundToInt(loc.x);
-            loc.y = Mathf.RoundToInt(loc.y);
-            location = loc;
+            var x = Mathf.RoundToInt(loc.x);
+            var y = Mathf.RoundToInt(loc.y);
+
+            return new Vector2Int(x, y);
         }
     }
 }
