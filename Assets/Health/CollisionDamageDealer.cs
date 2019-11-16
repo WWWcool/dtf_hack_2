@@ -49,6 +49,11 @@ namespace UnityPrototype
             if (!enabled)
                 return;
 
+            var layer = otherCollider.gameObject.layer;
+
+            if (((1 << layer) & m_targetLayers.value) == 0)
+                return;
+
             var damageReceiver = otherCollider.gameObject.GetComponent<DamageReceiver>();
 
             var contactPoint = Vector2.zero;
