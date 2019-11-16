@@ -95,6 +95,7 @@ namespace UnityPrototype
         {
             Snap();
             TrySwitchDirection();
+            EventBus.Instance.Raise(new GameEvents.OnTileReached() { currPosition = transform.position});
         }
 
         private void TrySwitchDirection()
