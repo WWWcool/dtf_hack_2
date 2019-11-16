@@ -83,7 +83,6 @@ namespace UnityPrototype
             if (reachedNewTile)
                 OnTileReached();
             MoveInCurrentDirection(dt2);
-            Debug.Log($"dt1: {dt1}, dt2: {dt2}");
         }
 
         private void MoveInCurrentDirection(float dt)
@@ -94,7 +93,6 @@ namespace UnityPrototype
 
         private void OnTileReached()
         {
-            Debug.Log("Reached tile");
             Snap();
             TrySwitchDirection();
         }
