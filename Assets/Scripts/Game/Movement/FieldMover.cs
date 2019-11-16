@@ -7,6 +7,7 @@ namespace UnityPrototype
     public class FieldMover : MonoBehaviour
     {
         [SerializeField] private float m_speed = 1.0f;
+        [SerializeField] private bool m_spawnTail = false;
 
         private static readonly Dictionary<FieldMover.Direction, Vector2Int> m_directionVectors = new Dictionary<FieldMover.Direction, Vector2Int> {
             {FieldMover.Direction.Left, Vector2Int.left},
@@ -15,10 +16,12 @@ namespace UnityPrototype
             {FieldMover.Direction.Down, Vector2Int.down},
         };
 
-        private Direction m_currentDirection = Direction.Right;
+        public Direction currentDirection { get; set; } = Direction.Right;
         private Direction? m_scheduledDirection = null;
 
         private FieldTransform m_fieldTransform => this.GetCachedComponent<FieldTransform>();
+
+        public event System.Action onTileReached;
 
         public enum Direction
         {
@@ -105,7 +108,7 @@ namespace UnityPrototype
 
         private void MoveInCurrentDirection(float dt)
         {
-            var delta = (Vector2)GetDirectionVector(m_currentDirection) * m_speed * dt;
+            var delta = (Vector2)GetDirectionVector(currentDirection) * m_speed * dt;
             m_fieldTransform.location += delta;
         }
 
@@ -114,13 +117,14 @@ namespace UnityPrototype
             Snap();
             TrySwitchScheduledDirection();
             TryReflectOffWalls();
-            EventBus.Instance.Raise(new GameEvents.OnTileReached() { currPosition = transform.position });
+            EventBus.Instance.Raise(new GameEvents.OnTileReached() { spawnTail = m_spawnTail, currPosition = transform.position });
+            onTileReached?.Invoke();
         }
 
         private void TrySwitchScheduledDirection()
         {
             if (m_scheduledDirection.HasValue)
-                m_currentDirection = m_scheduledDirection.Value;
+                currentDirection = m_scheduledDirection.Value;
             m_scheduledDirection = null;
         }
 
@@ -130,7 +134,7 @@ namespace UnityPrototype
             if (this.GetCachedComponentInParent<Field>().IsPassable(nextLocation))
                 return;
 
-            m_currentDirection = ReverseDirection(m_currentDirection);
+            currentDirection = ReverseDirection(currentDirection);
         }
 
         private Vector2Int GetDirectionVector(Direction dir)
@@ -140,16 +144,16 @@ namespace UnityPrototype
 
         private Vector2Int GetNextTileLocation()
         {
-            return m_fieldTransform.snappedLocation + GetDirectionVector(m_currentDirection);
+            return m_fieldTransform.snappedLocation + GetDirectionVector(currentDirection);
         }
 
         private float DistanceUntilNextTile()
         {
             var loc = m_fieldTransform.location;
-            var value = IsDirectionVertical(m_currentDirection) ? loc.y : loc.x;
+            var value = IsDirectionVertical(currentDirection) ? loc.y : loc.x;
 
             var d = 1.0f - Mathf.Repeat(value, 1.0f);
-            if (IsDirectionFlipped(m_currentDirection))
+            if (IsDirectionFlipped(currentDirection))
                 d = 1.0f - d;
 
             return d;

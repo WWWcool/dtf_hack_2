@@ -8,16 +8,19 @@ public class TailSpawnManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBus.Instance.AddListener<GameEvents.OnTileReached>(SpawnTail);
+        EventBus.Instance.AddListener<GameEvents.OnTileReached>(OnTileReached);
     }
 
     private void OnDisable()
     {
-        EventBus.Instance.RemoveListener<GameEvents.OnTileReached>(SpawnTail);
+        EventBus.Instance.RemoveListener<GameEvents.OnTileReached>(OnTileReached);
     }
 
-    private void SpawnTail(GameEvents.OnTileReached e)
+    private void OnTileReached(GameEvents.OnTileReached e)
     {
-        Instantiate(m_tail, e.currPosition,Quaternion.identity);
+        if (!e.spawnTail)
+            return;
+
+        Instantiate(m_tail, e.currPosition, Quaternion.identity);
     }
 }
