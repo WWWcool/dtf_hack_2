@@ -17,6 +17,7 @@ namespace UnityPrototype
         [SerializeField] private HealthParameters m_parameters;
         [SerializeField] private UnityEvent m_onHealthDepleted = default;
         [SerializeField] private UnityEventFloat m_onHealthChanged = default;
+        [SerializeField] private UnityEventFloat m_onUIChanged = default;
 
         private float m_health;
         private bool m_dead = false;
@@ -28,6 +29,7 @@ namespace UnityPrototype
         private void Awake()
         {
             m_health = maxHealth;
+            UpdateHealth(m_health, false);
         }
 
         public void TakeDamage(float damage)
@@ -57,6 +59,9 @@ namespace UnityPrototype
 
             if (notifyHealthChanged)
                 m_onHealthChanged?.Invoke(delta);
+
+            var amount = m_health / maxHealth;
+            m_onUIChanged?.Invoke(amount);
 
             if (Mathf.Abs(m_health) < Mathf.Epsilon)
             {

@@ -14,8 +14,11 @@ namespace UnityPrototype
 
         [SerializeField] private DamageReceiverParameters m_parameters;
         [SerializeField] private UnityEventVector2 m_onDamagePositionReceived = default;
+        [SerializeField] private bool m_debugReceive = false;
 
         private Health m_health;
+
+        private float m_debugDamageTimer = 0;
 
         private void OnEnable()
         {
@@ -32,6 +35,19 @@ namespace UnityPrototype
         public void InstaKill()
         {
             m_health.InstaKill();
+        }
+
+        private void Update()
+        {
+            if (m_debugReceive)
+            {
+                m_debugDamageTimer += Time.deltaTime;
+                if (m_debugDamageTimer >= 1)
+                {
+                    m_debugDamageTimer = 0;
+                    m_health.TakeDamage(10);
+                }
+            }
         }
     }
 }
