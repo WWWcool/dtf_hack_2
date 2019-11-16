@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 823961677629911832}
   - component: {fileID: 823961677629911833}
   - component: {fileID: 7291323038520862831}
+  - component: {fileID: 399924980667152959}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -175,6 +176,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &399924980667152959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823961677629911835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0e8701517fb4886bde17fa225139b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_parameters:
+    maxHealth: 100
+    isImmortal: 0
+  m_onHealthDepleted:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &823961677728099730
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +238,8 @@ GameObject:
   m_Component:
   - component: {fileID: 706868482375194399}
   - component: {fileID: 2451464310267653007}
-  m_Layer: 0
+  - component: {fileID: 5505920050770894459}
+  m_Layer: 9
   m_Name: Colliders
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -250,6 +273,23 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00057190657, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.10137248
+  m_Radius: 0.1
+--- !u!114 &5505920050770894459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5255724806371336964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d907908059cb4db3acc11a9eb3a7069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_parameters:
+    damageMultiplier: 1
+  m_onDamagePositionReceived:
+    m_PersistentCalls:
+      m_Calls: []
