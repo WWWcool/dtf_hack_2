@@ -99,4 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9d0c371e3f799498bf8eaeb609cb2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_tail: {fileID: 8777128398481297813, guid: ddd49a3250e17e34290448e0df85d1cb, type: 3}
+  m_tail: {fileID: 126563284526485315, guid: ddd49a3250e17e34290448e0df85d1cb, type: 3}
+  m_decreaseTimeReload: 3
+  m_timeToDecrease: 1
+  m_minimumTime: 2
