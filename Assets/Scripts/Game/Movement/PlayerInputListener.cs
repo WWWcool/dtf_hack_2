@@ -16,16 +16,23 @@ namespace UnityPrototype
         private void OnEnable()
         {
             EventBus.Instance.AddListener<InputEvents.SwipeDetected>(OnSwipeDetected);
+            EventBus.Instance.AddListener<InputEvents.TapDetected>(OnTapDetected);
         }
 
         private void OnDisable()
         {
             EventBus.Instance.RemoveListener<InputEvents.SwipeDetected>(OnSwipeDetected);
+            EventBus.Instance.RemoveListener<InputEvents.TapDetected>(OnTapDetected);
         }
 
         private void OnSwipeDetected(InputEvents.SwipeDetected e)
         {
             this.GetCachedComponent<FieldMover>().ScheduleTurn(GetTurnDirection(e.direction));
+        }
+
+        private void OnTapDetected(InputEvents.TapDetected e)
+        {
+            this.GetCachedComponent<FieldMover>().TryDash();
         }
 
         private FieldMover.Direction GetTurnDirection(InputEvents.SwipeDirection dir)

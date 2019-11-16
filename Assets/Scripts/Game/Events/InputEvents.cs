@@ -12,4 +12,6 @@ namespace InputEvents
     {
         public SwipeDirection direction;
     }
+
+    public class TapDetected : GameEvent { }
 }

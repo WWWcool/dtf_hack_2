@@ -8,6 +8,12 @@ namespace UnityPrototype
     {
         [SerializeField] private float m_speed = 1.0f;
         [SerializeField] private bool m_spawnTail = false;
+        [SerializeField] private int m_dashLength = 3;
+        [SerializeField] private int m_dashCharges = 0;
+        [SerializeField] private float m_dashTimeRecharge = 0;
+        private int m_currDashLength = 0;
+        private float m_dashSpeed = 40.0f;
+        private bool m_dashRunning = false;
 
         private static readonly Dictionary<FieldMover.Direction, Vector2Int> m_directionVectors = new Dictionary<FieldMover.Direction, Vector2Int> {
             {FieldMover.Direction.Left, Vector2Int.left},
@@ -22,7 +28,6 @@ namespace UnityPrototype
         private FieldTransform m_fieldTransform => this.GetCachedComponent<FieldTransform>();
 
         public event System.Action onTileReached;
-
         public enum Direction
         {
             Left,
@@ -91,6 +96,18 @@ namespace UnityPrototype
             m_scheduledDirection = direction;
         }
 
+        public void TryDash()
+        {
+            if (!m_dashRunning && m_dashCharges>0)
+            {
+                m_currDashLength = m_dashLength;
+                m_dashRunning = true;
+                m_speed += m_dashSpeed;
+                m_dashCharges--;
+                StartCoroutine(DashRechargeTimer());
+            }
+        }
+
         private void FixedUpdate()
         {
             var dt = Time.fixedDeltaTime;
@@ -114,6 +131,9 @@ namespace UnityPrototype
 
         private void OnTileReached()
         {
+            if (m_dashRunning && m_currDashLength > 1) m_currDashLength--;
+            else if (m_dashRunning && m_currDashLength == 1) { m_speed -= m_dashSpeed; m_dashRunning = false; }
+
             Snap();
             TrySwitchScheduledDirection();
             TryReflectOffWalls();
@@ -157,6 +177,12 @@ namespace UnityPrototype
                 d = 1.0f - d;
 
             return d;
+        }
+
+        private IEnumerator DashRechargeTimer()
+        {
+            yield return new WaitForSeconds(m_dashTimeRecharge);
+            m_dashCharges++;
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace UnityPrototype
 {
-    public class SwipeArea : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class SwipeArea : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
     {
         [SerializeField] private float m_distanceThreshold = 0.0f;
 
@@ -18,6 +18,7 @@ namespace UnityPrototype
 
         private Vector2 m_startPoint;
         private bool m_inputInProgress = false;
+        private bool m_canClick = true;
 
         private Vector2 GetPosition(PointerEventData eventData)
         {
@@ -32,14 +33,14 @@ namespace UnityPrototype
 
         public void OnDrag(PointerEventData eventData)
         {
-
+            m_canClick = false;
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
             var endPoint = GetPosition(eventData);
             m_inputInProgress = false;
-
+            m_canClick = true;
             var delta = endPoint - m_startPoint;
             if (delta.sqrMagnitude < m_distanceThreshold * m_distanceThreshold)
                 return;
@@ -47,6 +48,14 @@ namespace UnityPrototype
             var direction = CalcualteDirection(delta);
 
             EventBus.Instance.Raise(new InputEvents.SwipeDetected { direction = direction });
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (m_canClick)
+            {
+                EventBus.Instance.Raise(new InputEvents.TapDetected());
+            }
         }
 
         private InputEvents.SwipeDirection CalcualteDirection(Vector2 delta)

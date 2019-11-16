@@ -145,6 +145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 5
   m_spawnTail: 1
+  m_dashLength: 3
+  m_dashCharges: 2
+  m_dashTimeRecharge: 2
 --- !u!114 &823961677629911833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,11 +349,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 823961677629911834}
     m_Modifications:
-    - target: {fileID: 2185655066703431464, guid: f7a4d61c68e6a10439e80f130feb0940,
-        type: 3}
-      propertyPath: m_Name
-      value: HPBarMini
-      objectReference: {fileID: 0}
     - target: {fileID: 121824328834450584, guid: f7a4d61c68e6a10439e80f130feb0940,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -455,6 +453,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185655066703431464, guid: f7a4d61c68e6a10439e80f130feb0940,
+        type: 3}
+      propertyPath: m_Name
+      value: HPBarMini
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a4d61c68e6a10439e80f130feb0940, type: 3}
