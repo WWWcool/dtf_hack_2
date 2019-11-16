@@ -46,6 +46,15 @@ public enum ActionAttackCountType
     None,
 }
 
+public class AIActionAttackContext
+{
+    public ActionAttackType type = ActionAttackType.None;
+    public ActionAttackProjectileType projectileType = ActionAttackProjectileType.None;
+    public ActionAttackCountType countType = ActionAttackCountType.None;
+    public int min = 0;
+    public int maxOrCount = 1;
+}
+
 [System.Serializable]
 public class AIActionAttack
 {
@@ -55,82 +64,86 @@ public class AIActionAttack
     [SerializeField] public int min = 0;
     [SerializeField] public int maxOrCount = 1;
 
-    private float m_timer = 0;
-    private float m_timerTarget = 0;
+    [SerializeField] private UnityEventAIActionAttackContext m_onStartAttack;
+
+    private bool m_started = false;
+    private bool m_finished = false;
 
     public bool RunAction()
     {
-        bool res = true;
-        m_timer += Time.deltaTime;
-        if (m_timer >= m_timerTarget)
+        if (!m_started)
         {
-            res = true;
-            Reinit();
+            m_started = true;
+            m_onStartAttack.Invoke(new AIActionAttackContext
+            {
+                type = type,
+                projectileType = projectileType,
+                countType = countType,
+                min = min,
+                maxOrCount = maxOrCount
+            });
         }
-        else
-        {
-            res = false;
-        }
-
-        return res;
+        return m_finished;
     }
 
     public void Reinit()
     {
-        m_timer = 0;
-        switch (type)
-        {
-            case ActionAttackType.Melee:
-                m_timerTarget = Random.Range(0, maxOrCount);
-                break;
-            case ActionAttackType.Range:
-                break;
-        }
+        m_started = false;
+        m_finished = false;
     }
+
+    private void OnFinish()
+    {
+        m_finished = true;
+    }
+}
+
+public class AIActionMoveContext
+{
+    public ActionMoveType type = ActionMoveType.None;
+    public List<Transform> loopPositions;
+    public int length;
 }
 
 [System.Serializable]
 public class AIActionMove
 {
     [SerializeField] public ActionMoveType type = ActionMoveType.None;
-    [SerializeField] public Transform startLoop;
-    [SerializeField] public Transform endLoop;
+    [SerializeField] public List<Transform> loopPositions;
     [SerializeField] public int length;
 
-    private float m_timer = 0;
-    private float m_timerTarget = 0;
+    [SerializeField] private UnityEventAIActionMoveContext m_onStartMove;
+
+    private bool m_started = false;
+    private bool m_finished = false;
 
     public bool RunAction()
     {
-        bool res = true;
-        m_timer += Time.deltaTime;
-        if (m_timer >= m_timerTarget)
+        if (!m_started)
         {
-            res = true;
-            Reinit();
+            m_started = true;
+            m_onStartMove.Invoke(new AIActionMoveContext { loopPositions = loopPositions, length = length });
         }
-        else
-        {
-            res = false;
-        }
-
-        return res;
+        return m_finished;
     }
 
     public void Reinit()
     {
-        m_timer = 0;
-        switch (type)
-        {
-            case ActionMoveType.Free:
-                m_timerTarget = Random.Range(0, length);
-                break;
-            case ActionMoveType.Loop:
-                break;
-            case ActionMoveType.Line:
-                break;
-        }
+        m_started = false;
+        m_finished = false;
     }
+
+    private void OnFinish()
+    {
+        m_finished = true;
+    }
+}
+
+public class AIActionDelayContext
+{
+    public ActionDelayType type = ActionDelayType.None;
+    public float min = 0;
+    public float maxOrConst = 1;
 }
 
 [System.Serializable]

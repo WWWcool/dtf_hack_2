@@ -29,3 +29,18 @@ public class UnityEventGameObject : UnityEvent<GameObject>
 public class UnityEventGameObjectVector2 : UnityEvent<GameObject, Vector2>
 {
 }
+
+[System.Serializable]
+public class UnityEventAIActionDelayContext : UnityEvent<AIActionDelayContext>
+{
+}
+
+[System.Serializable]
+public class UnityEventAIActionMoveContext : UnityEvent<AIActionMoveContext>
+{
+}
+
+[System.Serializable]
+public class UnityEventAIActionAttackContext : UnityEvent<AIActionAttackContext>
+{
+}
