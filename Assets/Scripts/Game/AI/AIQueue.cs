@@ -53,6 +53,7 @@ public class AIActionAttackContext
     public ActionAttackCountType countType = ActionAttackCountType.None;
     public int min = 0;
     public int maxOrCount = 1;
+    public System.Action onFinished = null;
 }
 
 [System.Serializable]
@@ -80,7 +81,8 @@ public class AIActionAttack
                 projectileType = projectileType,
                 countType = countType,
                 min = min,
-                maxOrCount = maxOrCount
+                maxOrCount = maxOrCount,
+                onFinished = OnFinish,
             });
             Reinit();
         }
@@ -104,6 +106,7 @@ public class AIActionMoveContext
     public ActionMoveType type = ActionMoveType.None;
     public List<Transform> loopPositions;
     public int length;
+    public System.Action onFinished = null;
 }
 
 [System.Serializable]
@@ -120,13 +123,22 @@ public class AIActionMove
 
     public bool RunAction()
     {
+        var res = m_finished;
+        if (m_finished)
+            Reinit();
+
         if (!m_started)
         {
             m_started = true;
-            m_onStartMove.Invoke(new AIActionMoveContext { loopPositions = loopPositions, length = length });
-            Reinit();
+            m_onStartMove.Invoke(new AIActionMoveContext
+            {
+                type = type,
+                loopPositions = loopPositions,
+                length = length,
+                onFinished = OnFinish,
+            });
         }
-        return m_finished;
+        return res;
     }
 
     public void Reinit()
@@ -146,6 +158,7 @@ public class AIActionDelayContext
     public ActionDelayType type = ActionDelayType.None;
     public float min = 0;
     public float maxOrConst = 1;
+    public System.Action onFinished = null;
 }
 
 [System.Serializable]

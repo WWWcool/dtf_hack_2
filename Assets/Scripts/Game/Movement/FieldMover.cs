@@ -140,10 +140,10 @@ namespace UnityPrototype
         {
 
             Snap();
+            onTileReached?.Invoke();
             TrySwitchScheduledDirection();
             TryReflectOffWalls();
             EventBus.Instance.Raise(new GameEvents.OnTileReached() { spawnTail = m_spawnTail, currPosition = transform.position });
-            onTileReached?.Invoke();
         }
 
         private void TrySwitchScheduledDirection()

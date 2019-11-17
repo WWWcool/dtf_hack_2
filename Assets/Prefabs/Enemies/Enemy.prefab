@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b7b3238c2bd324391f825a25ecccdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 10
+  m_speed: 5
   m_spawnTail: 0
   m_dashLength: 3
   m_dashCharges: 0
@@ -197,12 +197,23 @@ MonoBehaviour:
   m_actions:
   - type: 1
     move:
-      type: 0
+      type: 1
       loopPositions: []
-      length: 0
+      length: -1
       m_onStartMove:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 1448094625713476142}
+            m_MethodName: OnMoveCommand
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     delay:
       type: 0
       min: 0
@@ -216,7 +227,7 @@ MonoBehaviour:
       m_onStartAttack:
         m_PersistentCalls:
           m_Calls: []
-    chance: 0
+    chance: 1
 --- !u!114 &8953562778849748403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,11 +419,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7733412369390514272}
     m_Modifications:
-    - target: {fileID: 2185655066703431464, guid: f7a4d61c68e6a10439e80f130feb0940,
-        type: 3}
-      propertyPath: m_Name
-      value: HPBarMini
-      objectReference: {fileID: 0}
     - target: {fileID: 121824328834450584, guid: f7a4d61c68e6a10439e80f130feb0940,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -517,6 +523,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185655066703431464, guid: f7a4d61c68e6a10439e80f130feb0940,
+        type: 3}
+      propertyPath: m_Name
+      value: HPBarMini
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a4d61c68e6a10439e80f130feb0940, type: 3}

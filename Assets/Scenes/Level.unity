@@ -3276,6 +3276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_resolution: {x: 20, y: 20}
   m_tileSize: {x: 0.78, y: 0.9}
+  m_players: {fileID: 11400000, guid: 5fb0964548dbfac4b958e43669a644b2, type: 2}
 --- !u!1 &275205959
 GameObject:
   m_ObjectHideFlags: 0

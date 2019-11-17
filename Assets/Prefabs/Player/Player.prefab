@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 7291323038520862831}
   - component: {fileID: 399924980667152959}
   - component: {fileID: 8514310736822292327}
+  - component: {fileID: 1581566761395235483}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -245,6 +246,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_debugReceive: 0
+--- !u!114 &1581566761395235483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823961677629911835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd1b2fa0acf542e58da80e1f9ed5333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_collection: {fileID: 11400000, guid: 5fb0964548dbfac4b958e43669a644b2, type: 2}
 --- !u!1 &823961677728099730
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,11 +363,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 823961677629911834}
     m_Modifications:
-    - target: {fileID: 2185655066703431464, guid: f7a4d61c68e6a10439e80f130feb0940,
-        type: 3}
-      propertyPath: m_Name
-      value: HPBarMini
-      objectReference: {fileID: 0}
     - target: {fileID: 121824328834450584, guid: f7a4d61c68e6a10439e80f130feb0940,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -458,6 +467,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185655066703431464, guid: f7a4d61c68e6a10439e80f130feb0940,
+        type: 3}
+      propertyPath: m_Name
+      value: HPBarMini
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a4d61c68e6a10439e80f130feb0940, type: 3}
