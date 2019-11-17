@@ -10,7 +10,7 @@ namespace UnityPrototype
         [SerializeField] private float m_decreaseTimeReload;
         [SerializeField] private float m_timeToDecrease;
         [SerializeField] private float m_minimumTime;
-        private Field m_field => ServiceLocator.FindObjectOfType<Field>();
+        private Field m_field => ServiceLocator.Get<Field>();
 
         public static float s_destroyTime = 2;
 
@@ -70,7 +70,8 @@ namespace UnityPrototype
             var loc = location;
             var x = (int)(loc.x);
             var y = (int)(loc.y);
-
+            if (Mathf.Approximately(1.0f, Mathf.Repeat(loc.x, 1.0f))) x++;
+            if (Mathf.Approximately(1.0f, Mathf.Repeat(loc.y, 1.0f))) y++;
             return new Vector2Int(x, y);
         }
     }

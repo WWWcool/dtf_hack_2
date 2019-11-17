@@ -105,8 +105,8 @@ namespace UnityPrototype
                     newTile.x < 0 || newTile.y < 0) return;
                 if (this.GetCachedComponentInParent<Field>().IsPassable(newTile))
                 {
-                    //Snap();
-                    m_fieldTransform.location += (Vector2)newLocation - (Vector2)GetDirectionVector(currentDirection)*0.3f;
+                    Snap();
+                    m_fieldTransform.location += newLocation - (Vector2)GetDirectionVector(currentDirection)*0.3f;
                     m_dashCharges--;
                     StartCoroutine(DashRechargeTimer());
                     EventBus.Instance.Raise(new GameEvents.OnDash(startPosition, 
