@@ -8,11 +8,12 @@ namespace UnityPrototype
     {
         [SerializeField] private SoundFxDescription m_description = default;
         [SerializeField] private AudioSource m_audioPlayerPrefab = null;
+        [SerializeField] private AudioClip m_backgroundMusic = null;
 
         private List<AudioSource> m_audioPlayers = new List<AudioSource>();
         private Stack<AudioSource> m_freeAudioPlayers = new Stack<AudioSource>();
 
-        private AudioSource m_cachedMusicPlayer = null;
+        private static AudioSource m_cachedMusicPlayer = null;
         private AudioSource m_musicPlayer
         {
             get
@@ -31,6 +32,12 @@ namespace UnityPrototype
         private void OnDisable()
         {
             EventBus.Instance.RemoveListener<SoundEvents.SoundEvent>(OnSoundEvent);
+        }
+
+        private void Start()
+        {
+            if (m_backgroundMusic != null)
+                SetMusic(m_backgroundMusic);
         }
 
         private void OnSoundEvent(SoundEvents.SoundEvent e)
