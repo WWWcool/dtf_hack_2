@@ -65,6 +65,7 @@ MonoBehaviour:
   m_onDamagePositionReceived:
     m_PersistentCalls:
       m_Calls: []
+  m_debugReceive: 0
 --- !u!1 &5670748638051432317
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +161,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 10
   m_spawnTail: 0
+  m_dashLength: 3
+  m_dashCharges: 0
+  m_dashTimeRecharge: 0
 --- !u!114 &1448094625713476142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,8 +328,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 231189503
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7fe5f8f2a0be44e18a538372d4f26b0b, type: 3}
   m_Color: {r: 0.8490566, g: 0.27156815, b: 0.15619439, a: 1}

@@ -66,9 +66,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 231189503
+  m_SortingLayer: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7fe5f8f2a0be44e18a538372d4f26b0b, type: 3}
   m_Color: {r: 0.2240566, g: 0.49695957, b: 0.8962264, a: 1}
   m_FlipX: 0
@@ -349,6 +349,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 823961677629911834}
     m_Modifications:
+    - target: {fileID: 2185655066703431464, guid: f7a4d61c68e6a10439e80f130feb0940,
+        type: 3}
+      propertyPath: m_Name
+      value: HPBarMini
+      objectReference: {fileID: 0}
     - target: {fileID: 121824328834450584, guid: f7a4d61c68e6a10439e80f130feb0940,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -453,11 +458,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185655066703431464, guid: f7a4d61c68e6a10439e80f130feb0940,
-        type: 3}
-      propertyPath: m_Name
-      value: HPBarMini
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a4d61c68e6a10439e80f130feb0940, type: 3}

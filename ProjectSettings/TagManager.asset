@@ -45,6 +45,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Tail
+    uniqueID: 1331505601
+    locked: 0
+  - name: Items
+    uniqueID: 1992624313
+    locked: 0
+  - name: Units
+    uniqueID: 231189503
+    locked: 0
   - name: UI
     uniqueID: 3017822181
     locked: 0
