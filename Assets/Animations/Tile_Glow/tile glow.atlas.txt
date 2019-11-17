@@ -1,0 +1,20 @@
+
+tile glow.png
+size: 113,68
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+star
+  rotate: true
+  xy: 80, 34
+  size: 32, 31
+  orig: 32, 31
+  offset: 0, 0
+  index: -1
+step
+  rotate: true
+  xy: 2, 2
+  size: 64, 76
+  orig: 78, 90
+  offset: 7, 7
+  index: -1
