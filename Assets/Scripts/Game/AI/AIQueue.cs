@@ -82,6 +82,7 @@ public class AIActionAttack
                 min = min,
                 maxOrCount = maxOrCount
             });
+            Reinit();
         }
         return m_finished;
     }
@@ -123,6 +124,7 @@ public class AIActionMove
         {
             m_started = true;
             m_onStartMove.Invoke(new AIActionMoveContext { loopPositions = loopPositions, length = length });
+            Reinit();
         }
         return m_finished;
     }
