@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 235451768882577042}
   - component: {fileID: 7607690534545431709}
   - component: {fileID: 1078706048571173465}
+  - component: {fileID: 4092315095293074600}
   m_Layer: 0
   m_Name: Tail
   m_TagString: Untagged
@@ -98,6 +99,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db435009d507cc74095fc77d842319d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4092315095293074600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126563284526485315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d86c193207d451c99585b5176071dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_parameters:
+    damage: 10
+  m_collisionDelay: 0.1
+  m_targetLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  m_onCollision:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onCollisionPosition:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onCollisionObjectPosition:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1948491918794004481
 GameObject:
   m_ObjectHideFlags: 0
