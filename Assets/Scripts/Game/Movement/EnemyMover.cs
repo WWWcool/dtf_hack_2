@@ -146,8 +146,6 @@ namespace UnityPrototype
             m_pathData = null;
 
             m_mover.enabled = m_enabled;
-
-            Debug.LogWarning("Movement finished");
         }
 
         private void OnDrawGizmos()
