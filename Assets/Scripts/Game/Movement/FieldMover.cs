@@ -87,15 +87,15 @@ namespace UnityPrototype
 
         public void ScheduleTurn(Direction direction)
         {
-            if (m_scheduledDirection.HasValue)
-                Debug.LogWarning("Direction has been already scheduled");
+            // if (m_scheduledDirection.HasValue)
+            //     Debug.LogWarning("Direction has been already scheduled");
 
             m_scheduledDirection = direction;
         }
 
         public void TryDash()
         {
-            if (m_dashCharges>0)
+            if (m_dashCharges > 0)
             {
                 var startPosition = m_fieldTransform.location;
                 var newLocation = GetDirectionVector(currentDirection) * m_dashLength;
@@ -106,10 +106,10 @@ namespace UnityPrototype
                 if (this.GetCachedComponentInParent<Field>().IsPassable(newTile))
                 {
                     Snap();
-                    m_fieldTransform.location += newLocation - (Vector2)GetDirectionVector(currentDirection)*0.3f;
+                    m_fieldTransform.location += newLocation - (Vector2)GetDirectionVector(currentDirection) * 0.3f;
                     m_dashCharges--;
                     StartCoroutine(DashRechargeTimer());
-                    EventBus.Instance.Raise(new GameEvents.OnDash(startPosition, 
+                    EventBus.Instance.Raise(new GameEvents.OnDash(startPosition,
                         GetDirectionVector(currentDirection), m_fieldTransform.location));
                 }
             }

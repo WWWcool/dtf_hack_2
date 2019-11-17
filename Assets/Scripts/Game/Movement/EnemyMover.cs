@@ -80,6 +80,7 @@ namespace UnityPrototype
 
         public void OnMoveCommand(AIActionMoveContext context)
         {
+            Debug.Log("Start Moving");
             var moveType = context.type;
             switch (moveType)
             {
@@ -145,7 +146,14 @@ namespace UnityPrototype
             m_onFinished = null;
             m_pathData = null;
 
-            m_mover.enabled = m_enabled;
+            UpdateMover();
+
+            Debug.Log("Finish Moving");
+        }
+
+        private void FixedUpdate()
+        {
+            UpdateMover();
         }
 
         private void OnDrawGizmos()

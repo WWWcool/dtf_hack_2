@@ -21,50 +21,20 @@ namespace UnityPrototype
         [SerializeField] private WeaponParameters m_parameters = null;
 
         private float m_shootDelay = 0.0f;
-
         private GameObject m_lockedTarget = null;
-        // public GameObject lockedTarget => m_lockedTarget;
-
-        // private WeaponParameters m_parameters
-        // {
-        //     get
-        //     {
-        //         return m_weaponParametersName != "" ? GameComponentsLocator.Get<ConfigManager>().config.GetWeaponParameters(m_weaponParametersName) : null;
-        //     }
-        // }
-
-        // private bool IsEnemy(GameObject obj)
-        // {
-        //     var fractionId = obj.GetComponentInParent<ObjectFraction>().fractionId;
-        //     var selfFractionId = this.GetCachedComponentInParent<ObjectFraction>().fractionId;
-
-        //     return fractionId != selfFractionId;
-        // }
+        private int m_shotsLeft = 0;
+        private System.Action m_onFinished = null;
 
         private GameObject FindTarget()
         {
             return m_players?.GetAnyAlive();
-
-            // if (m_unitsSensor == null)
-            //     return null;
-
-            // foreach (var obj in m_unitsSensor.touchingObjects)
-            // {
-            //     if (obj == null)
-            //         continue;
-
-            //     if (!IsInRange(obj))
-            //         continue;
-
-            //     if (IsEnemy(obj))
-            //         return obj;
-            // }
-
-            // return null;
         }
 
         private void FixedUpdate()
         {
+            if (m_shotsLeft <= 0)
+                return;
+
             m_shootDelay -= Time.fixedDeltaTime;
 
             if (m_lockedTarget == null)
@@ -76,6 +46,9 @@ namespace UnityPrototype
 
         private void Shoot(GameObject target)
         {
+            Debug.Assert(m_onFinished != null);
+            Debug.Assert(m_shotsLeft > 0);
+
             var targetPos = (Vector2)target.transform.position;
             var selfPos = (Vector2)transform.position;
 
@@ -96,6 +69,21 @@ namespace UnityPrototype
                 Instantiate(m_fxPrefab, spawnPosition, originalRotation);
 
             m_shootDelay = m_parameters.reloadTime;
+            m_shotsLeft--;
+
+            if (m_shotsLeft <= 0)
+            {
+                m_onFinished?.Invoke();
+                m_onFinished = null;
+                Debug.Log("Finish Shooting");
+            }
+        }
+
+        public void StartShooting(AIActionAttackContext context)
+        {
+            Debug.Log("Start Shooting");
+            m_shotsLeft = context.maxOrCount;
+            m_onFinished = context.onFinished;
         }
     }
 }

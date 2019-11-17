@@ -72,6 +72,10 @@ public class AIActionAttack
 
     public bool RunAction()
     {
+        var res = m_finished;
+        if (m_finished)
+            Reinit();
+
         if (!m_started)
         {
             m_started = true;
@@ -84,9 +88,8 @@ public class AIActionAttack
                 maxOrCount = maxOrCount,
                 onFinished = OnFinish,
             });
-            Reinit();
         }
-        return m_finished;
+        return res;
     }
 
     public void Reinit()
@@ -271,7 +274,10 @@ public class AIQueue : MonoBehaviour
 
     public AIAction GetNextAction()
     {
+        if (m_curent_action != null)
+            Debug.LogWarning($"Prev type: {m_curent_action.type}");
         m_curent_action = m_actions[GetRandomAction()];
+        Debug.LogWarning($"Next type: {m_curent_action.type}");
         return m_curent_action;
     }
 
