@@ -48,8 +48,9 @@ GameObject:
   - component: {fileID: 5614038259045766740}
   - component: {fileID: 1888804623420615756}
   - component: {fileID: 8039823436939302943}
+  - component: {fileID: 5788038650346046812}
   m_Layer: 0
-  m_Name: Enemy 1
+  m_Name: BaseEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,6 +120,7 @@ MonoBehaviour:
     length: 4
   - direction: 0
     length: 4
+  m_animator: {fileID: 0}
 --- !u!114 &5324283634130946017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +332,19 @@ MonoBehaviour:
   m_onCollisionObjectPosition:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5788038650346046812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4194775765867831054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd1b2fa0acf542e58da80e1f9ed5333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_collection: {fileID: 11400000, guid: 83e003913ce0aa34f8c276e4ee5a386f, type: 2}
 --- !u!1 &4194775766717051841
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +573,7 @@ MonoBehaviour:
     spreadConeAngle: 15
     projectilePrefab: {fileID: 1213322860024599899, guid: 57d88339324727746ac447a9fd5760d0,
       type: 3}
+  m_animator: {fileID: 0}
 --- !u!1001 &6360859608665076215
 PrefabInstance:
   m_ObjectHideFlags: 0

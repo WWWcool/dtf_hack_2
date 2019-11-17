@@ -21,7 +21,7 @@ namespace UnityPrototype
 
         public delegate void OnReverseDirection(Direction dir);
         public OnReverseDirection onReverseDirection = (dir) => { };
-        public Direction currentDirection { get; set; } = Direction.Right;
+        public Direction currentDirection { get; set; } = Direction.Up;
         private Direction? m_scheduledDirection = null;
 
         private FieldTransform m_fieldTransform => this.GetCachedComponent<FieldTransform>();

@@ -23,7 +23,7 @@ TagManager:
   - Wall
   - Projectile
   - Explosion
-  - 
+  - Door
   - 
   - 
   - 
@@ -56,6 +56,9 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 71139883
+    locked: 0
+  - name: Door
+    uniqueID: 665185567
     locked: 0
   - name: UI
     uniqueID: 3017822181
