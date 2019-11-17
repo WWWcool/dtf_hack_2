@@ -12,6 +12,17 @@ namespace UnityPrototype
         private List<AudioSource> m_audioPlayers = new List<AudioSource>();
         private Stack<AudioSource> m_freeAudioPlayers = new Stack<AudioSource>();
 
+        private AudioSource m_cachedMusicPlayer = null;
+        private AudioSource m_musicPlayer
+        {
+            get
+            {
+                if (m_cachedMusicPlayer == null)
+                    m_cachedMusicPlayer = CreateMusicPlayer();
+                return m_cachedMusicPlayer;
+            }
+        }
+
         private void OnEnable()
         {
             EventBus.Instance.AddListener<SoundEvents.SoundEvent>(OnSoundEvent);
@@ -57,6 +68,13 @@ namespace UnityPrototype
             return Instantiate(m_audioPlayerPrefab);
         }
 
+        private AudioSource CreateMusicPlayer()
+        {
+            var player = CreateAudioPlayer();
+            DontDestroyOnLoad(player);
+            return player;
+        }
+
         private void Update()
         {
             // Super not efficient, but no one cares
@@ -64,6 +82,16 @@ namespace UnityPrototype
             foreach (var player in m_audioPlayers)
                 if (!player.isPlaying)
                     m_freeAudioPlayers.Push(player);
+        }
+
+        public void SetMusic(AudioClip clip)
+        {
+            if (m_musicPlayer.clip == clip)
+                return;
+
+            m_musicPlayer.Stop();
+            m_musicPlayer.clip = clip;
+            m_musicPlayer.PlayOneShot(clip);
         }
     }
 }
