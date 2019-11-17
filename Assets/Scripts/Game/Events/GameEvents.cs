@@ -20,4 +20,9 @@ namespace GameEvents
             this.finishPosition = finishPosition;
         }
     }
+
+    public class OnGameOver : GameEvent
+    {
+        public bool won = false;
+    }
 }
