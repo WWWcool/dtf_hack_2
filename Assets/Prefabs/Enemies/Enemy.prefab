@@ -104,7 +104,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376409123953746845}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65067e8dde1b91147a8d1a5bd514c23b, type: 3}
   m_Name: 
@@ -163,6 +163,8 @@ GameObject:
   - component: {fileID: 1767636497946060942}
   - component: {fileID: 8953562778849748403}
   - component: {fileID: 2057403732550367547}
+  - component: {fileID: 5427451122002674467}
+  - component: {fileID: 4537234889455089520}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -353,6 +355,54 @@ MonoBehaviour:
   m_alignExplosion: 0
   m_explosionPrefab: {fileID: 0}
   m_scheduleSpawnOnStart: 0
+--- !u!50 &5427451122002674467
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733412369390514273}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &4537234889455089520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733412369390514273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d86c193207d451c99585b5176071dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_parameters:
+    damage: 10
+  m_collisionDelay: 0.1
+  m_targetLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  m_onCollision:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onCollisionPosition:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onCollisionObjectPosition:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7733412369611365550
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +521,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7733412369390514272}
     m_Modifications:
+    - target: {fileID: 2185655066703431464, guid: f7a4d61c68e6a10439e80f130feb0940,
+        type: 3}
+      propertyPath: m_Name
+      value: HPBarMini
+      objectReference: {fileID: 0}
     - target: {fileID: 121824328834450584, guid: f7a4d61c68e6a10439e80f130feb0940,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -575,11 +630,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185655066703431464, guid: f7a4d61c68e6a10439e80f130feb0940,
-        type: 3}
-      propertyPath: m_Name
-      value: HPBarMini
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a4d61c68e6a10439e80f130feb0940, type: 3}

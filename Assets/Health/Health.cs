@@ -26,11 +26,6 @@ namespace UnityPrototype
         public float health 
         { 
             get { return m_health; } 
-            set 
-            {
-                if (value < maxHealth) m_health = value;
-                else m_health = maxHealth;
-            } 
         }
         public bool isAlive { get { return !m_dead; } }
 

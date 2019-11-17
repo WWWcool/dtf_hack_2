@@ -38,8 +38,7 @@ namespace UnityPrototype
                         HealthRegen = healthRegenLarge;
                         break;
                 }
-                Debug.Log(collision.gameObject.name);
-                collision.gameObject.GetCachedComponentInParent<Health>().health += HealthRegen;
+                collision.gameObject.GetCachedComponentInParent<Health>().RegenerateHealth(HealthRegen);
                 Destroy(gameObject);
             }
         }
