@@ -125,7 +125,9 @@ namespace UnityEngine.Tilemaps
                 case 249:
                 case 253:
                 case 255: return 6;
+                case 244:
                 case 252: return 7;
+                case 94:
                 case 126: return 8;
                 case 109:
                 case 239: return 9;
@@ -156,6 +158,8 @@ namespace UnityEngine.Tilemaps
                 case 2:
                 case 8:
                 case 32:
+                case 136:
+                case 34:
                 case 128: return 18;
                 case 1:
                 case 3:
@@ -165,14 +169,16 @@ namespace UnityEngine.Tilemaps
                 case 68: return 20;
                 case 142:
                 case 174:
+                case 46:
                 case 14: return 21;
                 case 6: return 22;
                 case 4: return 23;
                 case 78: return 24;
-                case 226:
                 case 12: return 25;
                 case 44:
                 case 234:
+                case 232:
+                case 226:
                 case 224: return 26;
                 case 194:
                 case 192: return 27;
@@ -186,15 +192,20 @@ namespace UnityEngine.Tilemaps
                 case 144:
                 case 56: return 31;
                 case 97:
+                case 225:
                 case 227: return 32;
                 case 13:
+                case 15:
                 case 143: return 33;
                 case 22:
                 case 150:
+                case 30:
                 case 62: return 34;
                 case 208:
                 case 210:
+                case 240:
                 case 248: return 35;
+                
             }
             Debug.Log($"[BackTile][GetIndex] error can`t find index for mask {mask}");
             return -1;
