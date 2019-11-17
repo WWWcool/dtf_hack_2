@@ -98,10 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d41de0e4b9859e4d9fed6a3f856fd1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 0
-  timeRegenSmall: 5
-  timeRegenMidle: 12
-  timeRegenLarge: 12
+  size: 1
+  timeRegenSmall: 3
+  timeRegenMidle: 4
+  timeRegenLarge: 5
 --- !u!1 &4794200128646888264
 GameObject:
   m_ObjectHideFlags: 0
