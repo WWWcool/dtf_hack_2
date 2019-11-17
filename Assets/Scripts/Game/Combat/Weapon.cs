@@ -87,13 +87,15 @@ namespace UnityPrototype
                 m_onFinished?.Invoke();
                 m_onFinished = null;
                 Debug.Log("Finish Shooting");
+                m_animator.SetBool("IsAttacking", false);
             }
-            m_animator.SetBool("IsAttacking", true);
+
         }
 
         public void StartShooting(AIActionAttackContext context)
         {
             Debug.Log("Start Shooting");
+            m_animator.SetBool("IsAttacking", true);
             m_shotsLeft = context.maxOrCount;
             m_onFinished = context.onFinished;
         }

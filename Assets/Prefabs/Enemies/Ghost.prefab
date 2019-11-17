@@ -211,12 +211,12 @@ PrefabInstance:
     - target: {fileID: 5324283634130946017, guid: 843cae33bdce7674e99c46aaa6554dea,
         type: 3}
       propertyPath: m_actions.Array.data[1].attack.countType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5324283634130946017, guid: 843cae33bdce7674e99c46aaa6554dea,
         type: 3}
       propertyPath: m_actions.Array.data[1].attack.min
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6482543020694648175, guid: 843cae33bdce7674e99c46aaa6554dea,
         type: 3}
@@ -233,6 +233,11 @@ PrefabInstance:
       propertyPath: m_parameters.reloadTime
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 5403618624013239144, guid: 843cae33bdce7674e99c46aaa6554dea,
+        type: 3}
+      propertyPath: m_animator
+      value: 
+      objectReference: {fileID: 8024167138814176673}
     - target: {fileID: 4194775766717051841, guid: 843cae33bdce7674e99c46aaa6554dea,
         type: 3}
       propertyPath: m_IsActive
