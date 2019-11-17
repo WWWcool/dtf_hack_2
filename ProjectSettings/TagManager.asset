@@ -54,6 +54,9 @@ TagManager:
   - name: Units
     uniqueID: 231189503
     locked: 0
+  - name: Projectile
+    uniqueID: 71139883
+    locked: 0
   - name: UI
     uniqueID: 3017822181
     locked: 0
