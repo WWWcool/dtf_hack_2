@@ -15,6 +15,7 @@ namespace UnityPrototype
 
         // [SerializeField] private MovementPattern[] m_movementPatterns = new MovementPattern[0];
         [SerializeField] private List<MovementPattern> m_movementPatterns = new List<MovementPattern>();
+        [SerializeField] private Animator m_animator;
 
         private FieldMover m_mover => this.GetCachedComponent<FieldMover>();
         private MovementPattern m_currentPattern => m_movementPatterns[m_patternIndex];
@@ -32,13 +33,16 @@ namespace UnityPrototype
         private void OnEnable()
         {
             m_mover.onTileReached += OnTileReached;
+            m_mover.onReverseDirection += OnReverseDirection;
 
             m_mover.enabled = false;
+            m_animator.Play("Idle");
         }
 
         private void OnDisable()
         {
             m_mover.onTileReached -= OnTileReached;
+            m_mover.onReverseDirection -= OnReverseDirection;
         }
 
         // private void Start()
@@ -75,7 +79,38 @@ namespace UnityPrototype
             if (force)
                 m_mover.currentDirection = m_currentPattern.direction;
             else
+            {
                 m_mover.ScheduleTurn(m_currentPattern.direction);
+                UpdateAnimDir(m_currentPattern.direction);
+            }
+        }
+
+        private void OnReverseDirection(FieldMover.Direction dir)
+        {
+            UpdateAnimDir(dir);
+        }
+
+        void UpdateAnimDir(FieldMover.Direction dir)
+        {
+            m_animator.SetBool("isMovingUp", false);
+            m_animator.SetBool("isMovingRight", false);
+            m_animator.SetBool("isMovingDown", false);
+            m_animator.SetBool("isMovingLeft", false);
+            switch (dir)
+            {
+                case FieldMover.Direction.Up:
+                    m_animator.SetBool("isMovingUp", true);
+                    break;
+                case FieldMover.Direction.Right:
+                    m_animator.SetBool("isMovingRight", true);
+                    break;
+                case FieldMover.Direction.Down:
+                    m_animator.SetBool("isMovingDown", true);
+                    break;
+                case FieldMover.Direction.Left:
+                    m_animator.SetBool("isMovingLeft", true);
+                    break;
+            }
         }
 
         public void OnMoveCommand(AIActionMoveContext context)

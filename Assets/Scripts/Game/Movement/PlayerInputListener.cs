@@ -27,6 +27,7 @@ namespace UnityPrototype
         {
             EventBus.Instance.RemoveListener<InputEvents.SwipeDetected>(OnSwipeDetected);
             EventBus.Instance.RemoveListener<InputEvents.TapDetected>(OnTapDetected);
+            this.GetCachedComponent<FieldMover>().onReverseDirection -= OnReverseDirection;
         }
 
         private void OnSwipeDetected(InputEvents.SwipeDetected e)
