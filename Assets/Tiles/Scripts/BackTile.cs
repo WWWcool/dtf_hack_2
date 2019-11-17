@@ -87,8 +87,10 @@ namespace UnityEngine.Tilemaps
                 case 17:
                 case 19:
                 case 21:
+                case 23:
                 case 25:
                 case 27:
+                case 29:
                 case 31:
                 case 49:
                 case 51:
@@ -101,6 +103,7 @@ namespace UnityEngine.Tilemaps
                 case 89:
                 case 93:
                 case 95:
+                case 113:
                 case 117:
                 case 125:
                 case 127:
@@ -111,6 +114,7 @@ namespace UnityEngine.Tilemaps
                 case 153:
                 case 159:
                 case 185:
+                case 209:
                 case 211:
                 case 215:
                 case 223:
