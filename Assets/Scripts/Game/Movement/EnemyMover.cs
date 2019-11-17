@@ -113,6 +113,15 @@ namespace UnityPrototype
             }
         }
 
+        void IdleAnim()
+        {
+            m_animator.SetBool("isMovingUp", false);
+            m_animator.SetBool("isMovingRight", false);
+            m_animator.SetBool("isMovingDown", false);
+            m_animator.SetBool("isMovingLeft", false);
+        }
+
+
         public void OnMoveCommand(AIActionMoveContext context)
         {
             Debug.Log("Start Moving");
@@ -178,6 +187,7 @@ namespace UnityPrototype
         private void FinishPathFollowing()
         {
             m_onFinished?.Invoke();
+            IdleAnim();
             m_onFinished = null;
             m_pathData = null;
 

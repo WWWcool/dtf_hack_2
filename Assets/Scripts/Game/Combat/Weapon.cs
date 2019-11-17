@@ -19,6 +19,7 @@ namespace UnityPrototype
         [SerializeField] private GameObject m_spawnPoint = null;
         [SerializeField] private GameObject m_fxPrefab = null;
         [SerializeField] private WeaponParameters m_parameters = null;
+        [SerializeField] private Animator m_animator;
 
         private float m_shootDelay = 0.0f;
         private GameObject m_lockedTarget = null;
