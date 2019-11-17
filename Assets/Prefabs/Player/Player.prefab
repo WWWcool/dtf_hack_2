@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 1581566761395235483}
   - component: {fileID: 1980475528365864733}
   - component: {fileID: 5911947778658173675}
+  - component: {fileID: 2567061005433834817}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -224,6 +225,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2567061005433834817}
+        m_MethodName: RaiseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -279,6 +291,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemies: {fileID: 11400000, guid: 83e003913ce0aa34f8c276e4ee5a386f, type: 2}
+--- !u!114 &2567061005433834817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823961677629911835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 672e5f70e5691924983636793628614c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_type: 3
 --- !u!1 &823961677728099730
 GameObject:
   m_ObjectHideFlags: 0

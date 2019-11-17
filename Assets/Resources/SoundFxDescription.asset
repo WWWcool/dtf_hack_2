@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f969debd9849f564ea042987422f38bd, type: 3}
   m_Name: SoundFxDescription
   m_EditorClassIdentifier: 
-  m_soundData: []
+  m_soundData:
+  - type: 1
+    clips:
+    - {fileID: 8300000, guid: cf4acec8baf2ca44f9f21632d21fe770, type: 3}
+    volume: 1
+  - type: 2
+    clips:
+    - {fileID: 8300000, guid: 826bd9b098621ed40a3c09f5098236f2, type: 3}
+    volume: 1
+  - type: 3
+    clips:
+    - {fileID: 8300000, guid: 7892bf6c3f1645446ac89de18a526d31, type: 3}
+    volume: 1
+  - type: 4
+    clips:
+    - {fileID: 8300000, guid: 88994a5a05e1e1d4fafc09a98baade6d, type: 3}
+    volume: 1

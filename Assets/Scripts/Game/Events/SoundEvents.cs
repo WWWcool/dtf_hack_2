@@ -4,6 +4,9 @@ namespace SoundEvents
     {
         None,
         ButtonClick,
+        BombExplosion,
+        DeathHero,
+        DeathEnemy,
     }
 
     public class SoundEvent : GameEvent
