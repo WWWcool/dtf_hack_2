@@ -88,11 +88,14 @@ namespace UnityEngine.Tilemaps
                 case 19:
                 case 21:
                 case 25:
+                case 27:
+                case 31:
                 case 49:
                 case 51:
                 case 53:
                 case 57:
                 case 59:
+                case 63:
                 case 81:
                 case 83:
                 case 89:
@@ -100,16 +103,23 @@ namespace UnityEngine.Tilemaps
                 case 95:
                 case 117:
                 case 125:
+                case 127:
                 case 145:
+                case 147:
                 case 149:
                 case 151:
                 case 153:
+                case 159:
                 case 185:
                 case 211:
                 case 215:
                 case 223:
+                case 241:
                 case 245:
+                case 243:
                 case 247:
+                case 249:
+                case 253:
                 case 255: return 6;
                 case 252: return 7;
                 case 126: return 8;
@@ -132,6 +142,7 @@ namespace UnityEngine.Tilemaps
                 case 112:
                 case 250:
                 case 120: return 15;
+                case 84:
                 case 92:
                 case 116:
                 case 254:
@@ -144,6 +155,7 @@ namespace UnityEngine.Tilemaps
                 case 128: return 18;
                 case 1:
                 case 3:
+                case 33:
                 case 129:
                 case 131: return 19;
                 case 68: return 20;
@@ -162,10 +174,12 @@ namespace UnityEngine.Tilemaps
                 case 192: return 27;
                 case 64: return 28;
                 case 228: return 29;
+                case 104:
                 case 96: return 30;
                 case 16:
                 case 24:
                 case 48:
+                case 144:
                 case 56: return 31;
                 case 97:
                 case 227: return 32;
