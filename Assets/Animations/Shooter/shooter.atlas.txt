@@ -1,0 +1,111 @@
+
+shooter.png
+size: 261,505
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Smoke/smoke_00
+  rotate: false
+  xy: 130, 248
+  size: 44, 60
+  orig: 150, 149
+  offset: 53, 31
+  index: -1
+Smoke/smoke_01
+  rotate: true
+  xy: 176, 141
+  size: 79, 80
+  orig: 150, 149
+  offset: 33, 27
+  index: -1
+Smoke/smoke_02
+  rotate: false
+  xy: 2, 6
+  size: 103, 92
+  orig: 150, 149
+  offset: 18, 23
+  index: -1
+Smoke/smoke_03
+  rotate: false
+  xy: 2, 100
+  size: 114, 99
+  orig: 150, 149
+  offset: 13, 22
+  index: -1
+Smoke/smoke_04
+  rotate: false
+  xy: 2, 201
+  size: 120, 101
+  orig: 150, 149
+  offset: 11, 24
+  index: -1
+Smoke/smoke_05
+  rotate: false
+  xy: 2, 304
+  size: 126, 99
+  orig: 150, 149
+  offset: 10, 28
+  index: -1
+Smoke/smoke_06
+  rotate: false
+  xy: 2, 405
+  size: 128, 98
+  orig: 150, 149
+  offset: 12, 32
+  index: -1
+Smoke/smoke_07
+  rotate: false
+  xy: 132, 405
+  size: 126, 98
+  orig: 150, 149
+  offset: 12, 34
+  index: -1
+Smoke/smoke_08
+  rotate: false
+  xy: 130, 310
+  size: 125, 93
+  orig: 150, 149
+  offset: 11, 41
+  index: -1
+Smoke/smoke_09
+  rotate: false
+  xy: 176, 222
+  size: 83, 86
+  orig: 150, 149
+  offset: 11, 46
+  index: -1
+Smoke/smoke_10
+  rotate: false
+  xy: 118, 110
+  size: 55, 84
+  orig: 150, 149
+  offset: 13, 46
+  index: -1
+enemy_1_shadow
+  rotate: false
+  xy: 124, 196
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+shooter_body
+  rotate: false
+  xy: 107, 2
+  size: 67, 96
+  orig: 67, 96
+  offset: 0, 0
+  index: -1
+shooter_gun
+  rotate: false
+  xy: 176, 27
+  size: 69, 74
+  orig: 69, 74
+  offset: 0, 0
+  index: -1
+shooter_gun_base
+  rotate: false
+  xy: 175, 103
+  size: 77, 36
+  orig: 77, 36
+  offset: 0, 0
+  index: -1

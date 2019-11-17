@@ -208,6 +208,11 @@ PrefabInstance:
       propertyPath: m_animator
       value: 
       objectReference: {fileID: 2563609196324892542}
+    - target: {fileID: 5324283634130946017, guid: 843cae33bdce7674e99c46aaa6554dea,
+        type: 3}
+      propertyPath: m_actions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6482543020694648175, guid: 843cae33bdce7674e99c46aaa6554dea,
         type: 3}
       propertyPath: m_AnchoredPosition.y

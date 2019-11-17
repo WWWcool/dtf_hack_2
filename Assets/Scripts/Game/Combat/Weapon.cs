@@ -26,6 +26,12 @@ namespace UnityPrototype
         private int m_shotsLeft = 0;
         private System.Action m_onFinished = null;
 
+        void Start()
+        {
+            m_animator.Play("Idle");
+            m_animator.SetBool("IsAttacking", false);
+        }
+
         private GameObject FindTarget()
         {
             return m_players?.GetAnyAlive();
@@ -81,12 +87,15 @@ namespace UnityPrototype
                 m_onFinished?.Invoke();
                 m_onFinished = null;
                 Debug.Log("Finish Shooting");
+                m_animator.SetBool("IsAttacking", false);
             }
+
         }
 
         public void StartShooting(AIActionAttackContext context)
         {
             Debug.Log("Start Shooting");
+            m_animator.SetBool("IsAttacking", true);
             m_shotsLeft = context.maxOrCount;
             m_onFinished = context.onFinished;
         }
