@@ -25,12 +25,27 @@ public class PauseSystem : MonoBehaviour
         get { return pausedCount; }
     }
 
-    private void Start()
+    private void OnEnable()
     {
         if (instance == null) instance = this;
         else if (instance == this) Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
     }
+
+    public void PauseToogle()
+    {
+        if (!isPaused)
+        {
+            Time.timeScale = 0.0f;
+            isPaused = true;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+            isPaused = false;
+        }
+    }
+
     public void PauseOnOff(bool on)
     {
         if (on)

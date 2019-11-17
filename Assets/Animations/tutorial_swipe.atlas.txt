@@ -1,0 +1,20 @@
+
+tutorial_swipe.png
+size: 735,465
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arrows
+  rotate: true
+  xy: 2, 2
+  size: 461, 467
+  orig: 461, 467
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 471, 189
+  size: 262, 274
+  orig: 262, 274
+  offset: 0, 0
+  index: -1
