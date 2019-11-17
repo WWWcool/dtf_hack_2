@@ -20,7 +20,7 @@ namespace UnityPrototype
         };
 
         public delegate void OnReverseDirection(Direction dir);
-        public OnReverseDirection onReverseDirection;
+        public OnReverseDirection onReverseDirection = (dir) => { };
         public Direction currentDirection { get; set; } = Direction.Right;
         private Direction? m_scheduledDirection = null;
 

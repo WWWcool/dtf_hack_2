@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_target: {fileID: 0}
   m_smoothSpeed: 0.125
-  m_offset: {x: 0, y: -4, z: 0}
+  m_offset: {x: 0, y: 4, z: 0}
   m_followPlayer: 1
   m_alwaysOnFieldHor: 1
   m_alwaysOnFieldVer: 0
