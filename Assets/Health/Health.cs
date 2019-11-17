@@ -23,7 +23,15 @@ namespace UnityPrototype
         private bool m_dead = false;
 
         public float maxHealth { get { return m_parameters.maxHealth; } }
-        public float health { get { return m_health; } }
+        public float health 
+        { 
+            get { return m_health; } 
+            set 
+            {
+                if (value < maxHealth) m_health = value;
+                else m_health = maxHealth;
+            } 
+        }
         public bool isAlive { get { return !m_dead; } }
 
         private void Awake()
