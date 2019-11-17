@@ -19,6 +19,8 @@ namespace UnityPrototype
             {FieldMover.Direction.Down, Vector2Int.down},
         };
 
+        public delegate void OnReverseDirection(Direction dir);
+        public OnReverseDirection onReverseDirection;
         public Direction currentDirection { get; set; } = Direction.Right;
         private Direction? m_scheduledDirection = null;
 
@@ -80,7 +82,6 @@ namespace UnityPrototype
                 case Direction.Down:
                     return Direction.Up;
             }
-
             Debug.Assert(false);
             return Direction.Right;
         }
@@ -160,6 +161,7 @@ namespace UnityPrototype
                 return;
 
             currentDirection = ReverseDirection(currentDirection);
+            onReverseDirection(currentDirection);
         }
 
         private Vector2Int GetDirectionVector(Direction dir)
