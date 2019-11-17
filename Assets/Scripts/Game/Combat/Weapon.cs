@@ -65,6 +65,10 @@ namespace UnityPrototype
             var spawnPosition = selfPos + (Vector2)spawnOffset;
             var projectile = Instantiate(m_parameters.projectilePrefab, spawnPosition, rotation);
 
+            var parabolaMover = projectile.GetCachedComponent<TargetParabolaMover>();
+            if (parabolaMover != null)
+                parabolaMover.target = targetPos;
+
             if (m_fxPrefab != null)
                 Instantiate(m_fxPrefab, spawnPosition, originalRotation);
 
