@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_parameters:
-    maxHealth: 100
+    maxHealth: 300
     isImmortal: 0
   m_onHealthDepleted:
     m_PersistentCalls:
@@ -545,6 +545,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 823961677629911834}
     m_Modifications:
+    - target: {fileID: 2185655066703431464, guid: f7a4d61c68e6a10439e80f130feb0940,
+        type: 3}
+      propertyPath: m_Name
+      value: HPBarMini
+      objectReference: {fileID: 0}
     - target: {fileID: 121824328834450584, guid: f7a4d61c68e6a10439e80f130feb0940,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -650,17 +655,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2185655066703431464, guid: f7a4d61c68e6a10439e80f130feb0940,
-        type: 3}
-      propertyPath: m_Name
-      value: HPBarMini
-      objectReference: {fileID: 0}
-    - target: {fileID: 9204364610879031040, guid: f7a4d61c68e6a10439e80f130feb0940,
+    - target: {fileID: 1567643750156046706, guid: f7a4d61c68e6a10439e80f130feb0940,
         type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 1567643750156046706, guid: f7a4d61c68e6a10439e80f130feb0940,
+    - target: {fileID: 9204364610879031040, guid: f7a4d61c68e6a10439e80f130feb0940,
         type: 3}
       propertyPath: m_Layer
       value: 9

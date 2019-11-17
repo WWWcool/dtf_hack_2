@@ -195,9 +195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
-  healthRegenSmall: 10
-  healthRegenMidle: 20
-  healthRegenLarge: 30
+  healthRegenSmall: 50
+  healthRegenMidle: 100
+  healthRegenLarge: 150
 --- !u!1 &5093012948621347152
 GameObject:
   m_ObjectHideFlags: 0
