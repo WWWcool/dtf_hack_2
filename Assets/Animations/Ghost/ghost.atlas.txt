@@ -1,0 +1,153 @@
+
+ghost.png
+size: 465,266
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Spark 1/spark_00
+  rotate: true
+  xy: 276, 31
+  size: 36, 35
+  orig: 100, 101
+  offset: 32, 33
+  index: -1
+Spark 1/spark_01
+  rotate: true
+  xy: 363, 2
+  size: 72, 71
+  orig: 100, 101
+  offset: 14, 16
+  index: -1
+Spark 1/spark_02
+  rotate: false
+  xy: 202, 171
+  size: 92, 93
+  orig: 100, 101
+  offset: 4, 5
+  index: -1
+Spark 1/spark_03
+  rotate: false
+  xy: 102, 166
+  size: 98, 98
+  orig: 100, 101
+  offset: 1, 2
+  index: -1
+Spark 1/spark_04
+  rotate: true
+  xy: 2, 165
+  size: 99, 98
+  orig: 100, 101
+  offset: 1, 2
+  index: -1
+Spark 1/spark_05
+  rotate: false
+  xy: 2, 64
+  size: 98, 99
+  orig: 100, 101
+  offset: 2, 1
+  index: -1
+Spark 1/spark_06
+  rotate: false
+  xy: 102, 67
+  size: 93, 97
+  orig: 100, 101
+  offset: 4, 2
+  index: -1
+Spark 1/spark_07
+  rotate: false
+  xy: 197, 69
+  size: 91, 95
+  orig: 100, 101
+  offset: 6, 3
+  index: -1
+Spark 1/spark_08
+  rotate: false
+  xy: 290, 76
+  size: 90, 93
+  orig: 100, 101
+  offset: 6, 4
+  index: -1
+Spark 1/spark_09
+  rotate: false
+  xy: 296, 174
+  size: 85, 90
+  orig: 100, 101
+  offset: 10, 5
+  index: -1
+Spark 1/spark_10
+  rotate: false
+  xy: 382, 86
+  size: 81, 86
+  orig: 100, 101
+  offset: 12, 7
+  index: -1
+Spark 1/spark_11
+  rotate: false
+  xy: 383, 179
+  size: 78, 85
+  orig: 100, 101
+  offset: 15, 8
+  index: -1
+Spark 1/spark_12
+  rotate: true
+  xy: 140, 15
+  size: 50, 76
+  orig: 100, 101
+  offset: 36, 10
+  index: -1
+Spark 1/spark_13
+  rotate: false
+  xy: 140, 4
+  size: 49, 9
+  orig: 100, 101
+  offset: 36, 21
+  index: -1
+ghost_body
+  rotate: true
+  xy: 2, 5
+  size: 57, 136
+  orig: 57, 136
+  offset: 0, 0
+  index: -1
+ghost_eye
+  rotate: true
+  xy: 313, 31
+  size: 16, 30
+  orig: 16, 30
+  offset: 0, 0
+  index: -1
+ghost_hand_l
+  rotate: true
+  xy: 313, 49
+  size: 25, 23
+  orig: 25, 23
+  offset: 0, 0
+  index: -1
+ghost_hand_r
+  rotate: true
+  xy: 338, 49
+  size: 25, 23
+  orig: 25, 23
+  offset: 0, 0
+  index: -1
+ghost_iris
+  rotate: false
+  xy: 317, 5
+  size: 23, 24
+  orig: 35, 35
+  offset: 4, 7
+  index: -1
+ghost_mouth
+  rotate: false
+  xy: 276, 8
+  size: 39, 21
+  orig: 39, 21
+  offset: 0, 0
+  index: -1
+shadow ghost
+  rotate: true
+  xy: 218, 10
+  size: 57, 56
+  orig: 57, 56
+  offset: 0, 0
+  index: -1

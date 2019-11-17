@@ -1,0 +1,83 @@
+
+enemy 1.png
+size: 165,139
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+enemy_1_eye_l
+  rotate: true
+  xy: 104, 6
+  size: 17, 21
+  orig: 17, 21
+  offset: 0, 0
+  index: -1
+enemy_1_eye_r
+  rotate: true
+  xy: 127, 6
+  size: 17, 21
+  orig: 17, 21
+  offset: 0, 0
+  index: -1
+enemy_1_eyebrow_l
+  rotate: true
+  xy: 150, 3
+  size: 20, 12
+  orig: 20, 12
+  offset: 0, 0
+  index: -1
+enemy_1_eyebrow_r
+  rotate: true
+  xy: 151, 117
+  size: 20, 12
+  orig: 20, 12
+  offset: 0, 0
+  index: -1
+enemy_1_hands
+  rotate: false
+  xy: 2, 57
+  size: 93, 80
+  orig: 93, 80
+  offset: 0, 0
+  index: -1
+enemy_1_head
+  rotate: true
+  xy: 54, 2
+  size: 46, 48
+  orig: 46, 48
+  offset: 0, 0
+  index: -1
+enemy_1_iris_l
+  rotate: true
+  xy: 54, 50
+  size: 5, 10
+  orig: 5, 10
+  offset: 0, 0
+  index: -1
+enemy_1_iris_r
+  rotate: true
+  xy: 66, 50
+  size: 5, 10
+  orig: 5, 10
+  offset: 0, 0
+  index: -1
+enemy_1_legs
+  rotate: true
+  xy: 104, 25
+  size: 23, 52
+  orig: 23, 52
+  offset: 0, 0
+  index: -1
+enemy_1_mouth
+  rotate: true
+  xy: 97, 50
+  size: 87, 52
+  orig: 87, 52
+  offset: 0, 0
+  index: -1
+enemy_1_shadow
+  rotate: false
+  xy: 2, 5
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
