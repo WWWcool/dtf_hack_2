@@ -42,8 +42,6 @@ namespace UnityPrototype
             Vector2Int snappedFinish = GetSnappedLocation(e.finishPosition);
             Vector2Int direction = GetSnappedLocation(e.direction);
             Vector2 delta = snappedStart - snappedFinish;
-            Debug.Log(delta);
-            Debug.Log(direction);
             while (delta.x + delta.y!=0)
             {
                 if(direction.x + direction.y < 0 && m_field.IsPassable(snappedStart))
