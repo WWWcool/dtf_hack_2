@@ -21,6 +21,11 @@ namespace GameEvents
         }
     }
 
+    public class OnDashRecharge : GameEvent
+    {
+        public int newCount;
+    }
+
     public class OnGameOver : GameEvent
     {
         public bool won = false;
