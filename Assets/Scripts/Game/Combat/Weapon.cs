@@ -26,6 +26,12 @@ namespace UnityPrototype
         private int m_shotsLeft = 0;
         private System.Action m_onFinished = null;
 
+        void Start()
+        {
+            m_animator.Play("Idle");
+            m_animator.SetBool("IsAttacking", false);
+        }
+
         private GameObject FindTarget()
         {
             return m_players?.GetAnyAlive();
@@ -82,6 +88,7 @@ namespace UnityPrototype
                 m_onFinished = null;
                 Debug.Log("Finish Shooting");
             }
+            m_animator.SetBool("IsAttacking", true);
         }
 
         public void StartShooting(AIActionAttackContext context)

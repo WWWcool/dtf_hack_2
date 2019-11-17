@@ -208,6 +208,16 @@ PrefabInstance:
       propertyPath: m_animator
       value: 
       objectReference: {fileID: 8024167138814176673}
+    - target: {fileID: 6482543020694648175, guid: 843cae33bdce7674e99c46aaa6554dea,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482543020694648175, guid: 843cae33bdce7674e99c46aaa6554dea,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4194775766717051841, guid: 843cae33bdce7674e99c46aaa6554dea,
         type: 3}
       propertyPath: m_IsActive
