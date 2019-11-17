@@ -218,6 +218,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.01
       objectReference: {fileID: 0}
+    - target: {fileID: 5403618624013239144, guid: 843cae33bdce7674e99c46aaa6554dea,
+        type: 3}
+      propertyPath: m_fxPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403618624013239144, guid: 843cae33bdce7674e99c46aaa6554dea,
+        type: 3}
+      propertyPath: m_animator
+      value: 
+      objectReference: {fileID: 2563609196324892542}
     - target: {fileID: 4194775766717051841, guid: 843cae33bdce7674e99c46aaa6554dea,
         type: 3}
       propertyPath: m_IsActive
