@@ -47,7 +47,7 @@ public class SimpleSceneManager : MonoBehaviour
     {
         fade.enabled = true;
         fade.color = Color.Lerp(fade.color, Color.clear, fadeSpeed * Time.deltaTime);
-        print($"color {fade.color} delta {Time.deltaTime}");
+        // print($"color {fade.color} delta {Time.deltaTime}");
         if (fade.color.a <= 0.01f)
         {
             fade.color = Color.clear;
@@ -60,7 +60,7 @@ public class SimpleSceneManager : MonoBehaviour
         sceneStarting = false;
         fade.enabled = true;
         fade.color = Color.Lerp(fade.color, Color.black, fadeSpeed * Time.deltaTime);
-        print($"color {fade.color} delta {Time.deltaTime}");
+        // print($"color {fade.color} delta {Time.deltaTime}");
         if (fade.color.a >= 0.95f)
         {
             sceneEnding = false;
