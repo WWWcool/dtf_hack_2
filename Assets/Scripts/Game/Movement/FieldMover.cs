@@ -11,9 +11,6 @@ namespace UnityPrototype
         [SerializeField] private int m_dashLength = 3;
         [SerializeField] private int m_dashCharges = 0;
         [SerializeField] private float m_dashTimeRecharge = 0;
-        private int m_currDashLength = 0;
-        private float m_dashSpeed = 40.0f;
-        private bool m_dashRunning = false;
 
         private static readonly Dictionary<FieldMover.Direction, Vector2Int> m_directionVectors = new Dictionary<FieldMover.Direction, Vector2Int> {
             {FieldMover.Direction.Left, Vector2Int.left},
@@ -98,13 +95,23 @@ namespace UnityPrototype
 
         public void TryDash()
         {
-            if (!m_dashRunning && m_dashCharges>0)
+            if (m_dashCharges>0)
             {
-                m_currDashLength = m_dashLength;
-                m_dashRunning = true;
-                m_speed += m_dashSpeed;
-                m_dashCharges--;
-                StartCoroutine(DashRechargeTimer());
+                var startPosition = m_fieldTransform.location;
+                var newLocation = GetDirectionVector(currentDirection) * m_dashLength;
+                var newTile = newLocation + m_fieldTransform.snappedLocation;
+                var resolution = this.GetCachedComponentInParent<Field>().resolution;
+                if (newTile.x >= resolution.x || newTile.y >= resolution.y ||
+                    newTile.x < 0 || newTile.y < 0) return;
+                if (this.GetCachedComponentInParent<Field>().IsPassable(newTile))
+                {
+                    //Snap();
+                    m_fieldTransform.location += (Vector2)newLocation - (Vector2)GetDirectionVector(currentDirection)*0.3f;
+                    m_dashCharges--;
+                    StartCoroutine(DashRechargeTimer());
+                    EventBus.Instance.Raise(new GameEvents.OnDash(startPosition, 
+                        GetDirectionVector(currentDirection), m_fieldTransform.location));
+                }
             }
         }
 
@@ -131,8 +138,6 @@ namespace UnityPrototype
 
         private void OnTileReached()
         {
-            if (m_dashRunning && m_currDashLength > 1) m_currDashLength--;
-            else if (m_dashRunning && m_currDashLength == 1) { m_speed -= m_dashSpeed; m_dashRunning = false; }
 
             Snap();
             TrySwitchScheduledDirection();

@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TailController : MonoBehaviour
+namespace UnityPrototype
 {
-    
-    private void OnEnable()
+    public class TailController : MonoBehaviour
     {
-        Destroy(gameObject, TailSpawnManager.s_destroyTime);
+
+        private void OnEnable()
+        {
+            Destroy(gameObject, TailSpawnManager.s_destroyTime);
+        }
     }
 }
