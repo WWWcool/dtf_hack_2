@@ -6,6 +6,6 @@ public class StartButton : MonoBehaviour
 {
     public void StartGame()
     {
-        ServiceLocator.Get<SceneListManager>().LoadNextScene();
+        ServiceLocator.Get<SimpleSceneManager>().LoadNextScene();
     }
 }

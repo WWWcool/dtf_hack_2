@@ -10,12 +10,12 @@ namespace UnityPrototype
 
         public void OnInputStarted()
         {
-            ServiceLocator.Get<TimeManager>().ScaleTime(m_inputTimeScale);
+            // ServiceLocator.Get<TimeManager>().ScaleTime(m_inputTimeScale);
         }
-        
+
         public void OnInputFinished()
         {
-            ServiceLocator.Get<TimeManager>().ScaleTime(1.0f);
+            // ServiceLocator.Get<TimeManager>().ScaleTime(1.0f);
         }
     }
 }

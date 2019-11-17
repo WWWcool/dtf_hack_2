@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneListManager : MonoBehaviour
+public class SimpleSceneManager : MonoBehaviour
 {
-    private int currentLoadIndex = 1;
+    private int currentLoadIndex = 0;
 
     private bool sceneStarting = true;
     private bool sceneEnding = false;
@@ -47,7 +47,7 @@ public class SceneListManager : MonoBehaviour
     {
         fade.enabled = true;
         fade.color = Color.Lerp(fade.color, Color.clear, fadeSpeed * Time.deltaTime);
-
+        print($"color {fade.color} delta {Time.deltaTime}");
         if (fade.color.a <= 0.01f)
         {
             fade.color = Color.clear;
@@ -55,12 +55,12 @@ public class SceneListManager : MonoBehaviour
             sceneStarting = false;
         }
     }
-
     private void EndScene()
     {
         sceneStarting = false;
         fade.enabled = true;
         fade.color = Color.Lerp(fade.color, Color.black, fadeSpeed * Time.deltaTime);
+        print($"color {fade.color} delta {Time.deltaTime}");
         if (fade.color.a >= 0.95f)
         {
             sceneEnding = false;
