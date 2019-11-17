@@ -190,6 +190,7 @@ namespace UnityPrototype
         {
             yield return new WaitForSeconds(m_dashTimeRecharge);
             m_dashCharges++;
+            EventBus.Instance.Raise(new GameEvents.OnDashRecharge() { newCount = m_dashCharges });
         }
     }
 }
