@@ -10,6 +10,11 @@ public class HUDController : MonoBehaviour
     [SerializeField] private bool m_showSwipeHint = false;
     [SerializeField] private Text m_chargeCount;
 
+    private void OnEnable()
+    {
+        EventBus.Instance.AddListener<GameEvents.OnDashRecharge>(OnDashRecharge);
+    }
+
     void Start()
     {
         m_swipeHint.SetActive(m_showSwipeHint);
@@ -17,7 +22,6 @@ public class HUDController : MonoBehaviour
         {
             PauseSystem.Instance.NeedPause(true);
         }
-        EventBus.Instance.AddListener<GameEvents.OnDashRecharge>(OnDashRecharge);
     }
 
     public void OnHintSkip()

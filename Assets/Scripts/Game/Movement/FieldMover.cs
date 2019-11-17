@@ -38,6 +38,10 @@ namespace UnityPrototype
         private void Start()
         {
             Snap();
+            if (m_spawnTail)
+            {
+                EventBus.Instance.Raise(new GameEvents.OnDashRecharge() { newCount = m_dashCharges });
+            }
         }
 
         private void Snap()
@@ -109,6 +113,7 @@ namespace UnityPrototype
                     Snap();
                     m_fieldTransform.location += newLocation - (Vector2)GetDirectionVector(currentDirection) * 0.3f;
                     m_dashCharges--;
+                    EventBus.Instance.Raise(new GameEvents.OnDashRecharge() { newCount = m_dashCharges });
                     StartCoroutine(DashRechargeTimer());
                     EventBus.Instance.Raise(new GameEvents.OnDash(startPosition,
                         GetDirectionVector(currentDirection), m_fieldTransform.location));
@@ -190,7 +195,10 @@ namespace UnityPrototype
         {
             yield return new WaitForSeconds(m_dashTimeRecharge);
             m_dashCharges++;
-            EventBus.Instance.Raise(new GameEvents.OnDashRecharge() { newCount = m_dashCharges });
+            if (m_spawnTail)
+            {
+                EventBus.Instance.Raise(new GameEvents.OnDashRecharge() { newCount = m_dashCharges });
+            }
         }
     }
 }
